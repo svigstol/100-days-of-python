@@ -1,7 +1,7 @@
 # 100 Days of Python
 # Day 4 - Rock Paper Scissors Game
 # Sarah Vigstol
-# 4/17/21
+# 4/24/21
 
 import random
 
