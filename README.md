@@ -1,1 +1,1 @@
-# prime-checker
+# 100-days-of-python
