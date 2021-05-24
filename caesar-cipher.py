@@ -6,41 +6,44 @@
 # list of letters a through z
 alphabet = list(map(chr, range(97, 122)))
 
-print('''What would you like to do?
-Type 'encode' to encrypt or 'decode' to decrypt.''')
-userAction = input('> ').lower()
+print("What would you like to do?")
+print("Type 'encode' to encrypt or 'decode' to decrypt.")
+userAction = input("> ").lower()
 
-print('Enter your message: ')
-userInput = input('> ').lower()
+#if userAction == 'encode' or userAction == 'decode':
+#    # input ok
+#    print('ok')
+#else:
+#    print("Invalid input. Please try again.")
+#    print("What would you like to do?")
+#    print("Type 'encode' to encrypt or 'decode' to decrypt.")
+#    userAction = input("> ").lower()
 
-print('Enter the shift number: ')
-shiftNumber = int(input('> '))
+print("Enter your message: ")
+userInput = input("> ").lower()
+
+print("Enter the shift number: ")
+shiftNumber = int(input("> "))
 
 def encrypt(plainText, shift):
-    encodedText = ''
+    encodedText = ""
     for letter in plainText:
         listPosition = alphabet.index(letter)
         newPosition = listPosition + shift
         newLetter = alphabet[newPosition]
         encodedText += newLetter
-    print(f'The encoded message is: {encodedText}')
+    print(f"The encoded message is: {encodedText}")
 
 def decrypt(plainText, shift):
-    decodedText = ''
+    decodedText = ""
     for letter in plainText:
         listPosition = alphabet.index(letter)
         newPosition = listPosition - shift
         newLetter = alphabet[newPosition]
         decodedText += newLetter
-    print(f'The decoded message is: {decodedText}')
+    print(f"The decoded message is: {decodedText}")
 
-
-# f userAction == 'encode':
-#     encrypt(plainText=userInput, shift=shiftNumber)
-# elif userAction == 'decode':
-#     decrypt(plainText=userInput, shift=shiftNumber)
-# else:
-#     print('Invalid input. Please try again.')
-#     print('''What would you like to do?
-#     Type 'encode' to encrypt or 'decode' to decrypt.''')
-#     userAction = input('> ').lower()
+if userAction == 'encode':
+    encrypt(plainText=userInput, shift=shiftNumber)
+else:
+    decrypt(plainText=userInput, shift=shiftNumber)
