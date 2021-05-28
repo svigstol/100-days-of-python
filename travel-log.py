@@ -25,6 +25,13 @@ def addNewCountry(country, visits, cities):
         "cities": cities
     }
     )
+# alternative code solution
+# def addNewCountry(countryVisted, timesVisited, citiesVisited)
+#   newCountry = {}
+#   newCountry["country"] = countryVisted
+#   newCountry["visits"] = timesVisited
+#   newCountry["cities"] = citiesVisited
+#   travelLog.append(newCountry)
 
 addNewCountry("Russia", 2, ["Moscow", "Saint Petersburg"])
 print(travelLog)
