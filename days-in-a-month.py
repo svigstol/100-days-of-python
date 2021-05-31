@@ -23,27 +23,31 @@ def daysInMonth(year, month):
         return 29
     return monthLength[month - 1]
 
-year = int(input("Enter a year: "))
-month = int(input("Enter a month (1-12): "))
+while True:
+    year = int(input("Enter a year: "))
+    month = int(input("Enter a month (1-12): "))
+    monthNames = {
+        1:"January",
+        2: "February",
+        3: "March",
+        4: "April",
+        5: "May",
+        6: "June",
+        7: "July",
+        8: "August",
+        9: "September",
+        10: "October",
+        11: "Novemeber",
+        12: "December"
+        }
 
-monthNames = {
-    1:"January",
-    2: "February",
-    3: "March",
-    4: "April",
-    5: "May",
-    6: "June",
-    7: "July",
-    8: "August",
-    9: "September",
-    10: "October",
-    11: "Novemeber",
-    12: "December"
-    }
-
-for key in monthNames:
-    if key == month:
-        monthName = monthNames.get(key)
-
-days = daysInMonth(year, month)
-print(f"There were {days} days in {monthName} of {year}.")
+    if month <= 12 and month >= 1:
+        for key in monthNames:
+            if key == month:
+                monthName = monthNames.get(key)
+                days = daysInMonth(year, month)
+                print(f"\nThere were {days} days in {monthName} of {year}.")
+        break
+        
+    elif month > 12 or month < 1:
+        print("Invalid month. Try again.\n")
