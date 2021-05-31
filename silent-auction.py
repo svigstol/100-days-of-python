@@ -5,8 +5,20 @@
 # 5/30/21
 
 bids = {}
-userName = input("Who is bidding?\n> ")
-userBid = input(f"Hello, {userName}. What would you like to bid?\n> ")
-bids[userName] = userBid
+displayWinner = False
 
+name = input("Please enter your name: ")
+bid = int(input(f"Hello, {name}. Enter your bid now: $"))
+
+def gatherInput(userName, userBid):
+    bids[userName] = "{:.2f}".format(userBid)
+
+#    moreBids = input("""
+#    Would any one else like to bid?\n
+#    Enter 'yes' or 'no. '
+#    """).lower()
+#    if moreBids == "no":
+#        displayWinner = True
+
+gatherInput(userName=name, userBid=bid)
 print(bids)
