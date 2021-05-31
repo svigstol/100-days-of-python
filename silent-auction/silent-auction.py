@@ -31,7 +31,6 @@ def silentAuction():
             while gameCheck == True:
                 goAgain = input("Start a new auction? Type 'yes' or 'no.' ").lower()
                 if goAgain == "yes":
-                    # multiRound == False
                     click.clear()
                     silentAuction()
                 elif goAgain == "no":
