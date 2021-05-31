@@ -7,10 +7,9 @@
 import click
 import userexp
 
-print(userexp.logo)
-print(userexp.art)
-
 def silentAuction():
+    print(userexp.logo)
+    print(userexp.art)
 
     bids = {}
     displayWinner = False
@@ -32,8 +31,6 @@ def silentAuction():
 
             if goAgain == "yes":
                 click.clear()
-                print(userexp.logo)
-                print(userexp.art)
                 silentAuction()
             elif goAgain == "no":
                 print("Goodbye!")
@@ -42,7 +39,7 @@ def silentAuction():
                 print("Invalid input. Please try again.\n")
 
             displayWinner = True
-            
+
         else:
             print("Invalid input. Please try again.\n")
 
