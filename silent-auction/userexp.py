@@ -20,3 +20,17 @@ art = ('''
            .-------------.
           /_______________\\
 ''')
+
+import click
+
+def goAgain():
+    goAgain = input("Start a new auction? Type 'yes' or 'no.' ").lower()
+    if goAgain == "yes":
+        click.clear()
+        silentAuction()
+    elif goAgain == "no":
+        print("Goodbye!")
+        quit()
+    else:
+        print("Invalid input. Please try again.\n")
+        goAgain()

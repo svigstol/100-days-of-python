@@ -27,16 +27,18 @@ def silentAuction():
             winningBid = "{:.2f}".format(bids[winner])
             print(f"The winner is {winner} with a bid of ${winningBid}.\n")
 
-            goAgain = input("Start a new auction? Type 'yes' or 'no.' ").lower()
-
-            if goAgain == "yes":
-                click.clear()
-                silentAuction()
-            elif goAgain == "no":
-                print("Goodbye!")
-                quit()
-            else:
-                print("Invalid input. Please try again.\n")
+            gameCheck = True
+            while gameCheck == True:
+                goAgain = input("Start a new auction? Type 'yes' or 'no.' ").lower()
+                if goAgain == "yes":
+                    # multiRound == False
+                    click.clear()
+                    silentAuction()
+                elif goAgain == "no":
+                    print("Goodbye!")
+                    quit()
+                else:
+                    print("Invalid input. Please try again.\n")
 
             displayWinner = True
 
