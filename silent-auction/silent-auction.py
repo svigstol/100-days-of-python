@@ -7,22 +7,43 @@
 import click
 import userexp
 
-bids = {}
-displayWinner = False
-
 print(userexp.logo)
 print(userexp.art)
 
-while displayWinner == False:
-    name = input("Please enter your name: ")
-    bid = int(input(f"Hello, {name}. Enter your bid now: $"))
-    bids[name] = bid
+def silentAuction():
 
-    moreBids = input("Any other takers? Type 'yes or 'no.' ").lower()
-    if moreBids == "no":
-        winner = max(bids, key=bids.get)
-        winningBid = "{:.2f}".format(bids[winner])
-        print(f"The winner is {winner} with a bid of ${winningBid}.")
-        displayWinner = True
-    else:
-        click.clear()
+    bids = {}
+    displayWinner = False
+
+    while displayWinner == False:
+        name = input("Please enter your name: ")
+        bid = float(input(f"Hello, {name}. Enter your bid now: $"))
+        bids[name] = bid
+
+        moreBids = input("Any other takers? Type 'yes or 'no.' ").lower()
+        if moreBids == "yes":
+            click.clear()
+        elif moreBids == "no":
+            winner = max(bids, key=bids.get)
+            winningBid = "{:.2f}".format(bids[winner])
+            print(f"The winner is {winner} with a bid of ${winningBid}.\n")
+
+            goAgain = input("Start a new auction? Type 'yes' or 'no.' ").lower()
+
+            if goAgain == "yes":
+                bids = {}
+                click.clear()
+                print(userexp.logo)
+                print(userexp.art)
+                silentAuction()
+            elif goAgain == "no":
+                print("Goodbye!")
+                quit()
+            else:
+                print("Invalid input. Please try again.\n")
+
+            displayWinner = True
+        else:
+            print("Invalid input. Please try again.\n")
+
+silentAuction()
