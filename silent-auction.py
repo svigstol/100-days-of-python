@@ -4,21 +4,25 @@
 # Sarah Vigstol
 # 5/30/21
 
+import click
+
 bids = {}
 displayWinner = False
 
-name = input("Please enter your name: ")
-bid = int(input(f"Hello, {name}. Enter your bid now: $"))
+# def gatherInput(userName, userBid):
 
-def gatherInput(userName, userBid):
-    bids[userName] = "{:.2f}".format(userBid)
 
-#    moreBids = input("""
-#    Would any one else like to bid?\n
-#    Enter 'yes' or 'no. '
-#    """).lower()
-#    if moreBids == "no":
-#        displayWinner = True
+while displayWinner == False:
+    name = input("Please enter your name: ")
+    bid = int(input(f"Hello, {name}. Enter your bid now: $"))
+    bids[name] = bid
 
-gatherInput(userName=name, userBid=bid)
+    moreBids = input("Any other takers? Type 'yes or 'no.' ").lower()
+    if moreBids == "no":
+        displayWinner = True
+    else:
+        click.clear()
+
+
+# gatherInput(userName=name, userBid=bid)
 print(bids)
