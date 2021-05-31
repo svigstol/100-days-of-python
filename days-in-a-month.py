@@ -19,12 +19,9 @@ def isLeap(year):
 
 def daysInMonth(year, month):
     monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-    if isLeap(year) == True:
-        if month == 2:
-            monthLength[1] = 29
-        return monthLength[month - 1]
-    else:
-        return monthLength[month - 1]
+    if isLeap(year) == True and month == 2:
+        return 29
+    return monthLength[month - 1]
 
 year = int(input("Enter a year: "))
 month = int(input("Enter a month (1-12): "))
