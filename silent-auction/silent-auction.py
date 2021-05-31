@@ -31,7 +31,6 @@ def silentAuction():
             goAgain = input("Start a new auction? Type 'yes' or 'no.' ").lower()
 
             if goAgain == "yes":
-                bids = {}
                 click.clear()
                 print(userexp.logo)
                 print(userexp.art)
@@ -43,6 +42,7 @@ def silentAuction():
                 print("Invalid input. Please try again.\n")
 
             displayWinner = True
+            
         else:
             print("Invalid input. Please try again.\n")
 
