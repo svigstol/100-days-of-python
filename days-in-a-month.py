@@ -29,5 +29,24 @@ def daysInMonth(year, month):
 year = int(input("Enter a year: "))
 month = int(input("Enter a month (1-12): "))
 
+monthNames = {
+    1:"January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "Novemeber",
+    12: "December"
+    }
+
+for key in monthNames:
+    if key == month:
+        monthName = monthNames.get(key)
+
 days = daysInMonth(year, month)
-print(f"There were {days} days in {month}/{year}.")
+print(f"There were {days} days in {monthName} of {year}.")
