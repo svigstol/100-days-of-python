@@ -6,18 +6,21 @@
 # 5/31/21
 
 def isLeap(year):
-  if year % 4 == 0:
-    if year % 100 == 0:
-      if year % 400 == 0:
-        return True
-      else:
-        return False
+    """Determine whether or not a given year is a leap year."""
+    if year % 4 == 0:
+        if year % 100 == 0:
+            if year % 400 == 0:
+                return True
+            else:
+                return False
+        else:
+            return True
     else:
-      return True
-  else:
-    return False
+        return False
 
 def daysInMonth(year, month):
+    """Check if the given year is a leap year, then returns the
+    number of days in the given month."""
     monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
     if isLeap(year) == True and month == 2:
         return 29
@@ -48,6 +51,6 @@ while True:
                 days = daysInMonth(year, month)
                 print(f"\nThere were {days} days in {monthName} of {year}.")
         break
-        
+
     elif month > 12 or month < 1:
         print("Invalid month. Try again.\n")
