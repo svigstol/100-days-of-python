@@ -5,12 +5,13 @@
 # 5/30/21
 
 import click
+import userexp
 
 bids = {}
 displayWinner = False
 
-# def gatherInput(userName, userBid):
-
+print(userexp.logo)
+print(userexp.art)
 
 while displayWinner == False:
     name = input("Please enter your name: ")
@@ -19,10 +20,9 @@ while displayWinner == False:
 
     moreBids = input("Any other takers? Type 'yes or 'no.' ").lower()
     if moreBids == "no":
+        winner = max(bids, key=bids.get)
+        winningBid = "{:.2f}".format(bids[winner])
+        print(f"The winner is {winner} with a bid of ${winningBid}.")
         displayWinner = True
     else:
         click.clear()
-
-
-# gatherInput(userName=name, userBid=bid)
-print(bids)
