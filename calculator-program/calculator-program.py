@@ -21,9 +21,11 @@ def divide(n1, n2):
     """Divide a number by another number and return the quotient"""
     return n1 / n2
 
-calcFinish = False
+from ascii import logo
 
-while not calcFinish:
+def calculator():
+    print(logo)
+
     operations = {
         "+": add,
         "-": subtract,
@@ -31,23 +33,23 @@ while not calcFinish:
         "/": divide
     }
 
-    num1 = int(input("What is the first number? "))
-    num2 = int(input("What is the second number? "))
-
+    num1 = float(input("What is the first number? "))
     for symbol in operations:
         print(symbol)
+    continueCalc = True
 
-    operator = input("Choose an operation from the list above: ")
-    calcFunction = operations[operator]
-    answer = calcFunction(num1, num2)
+    while continueCalc:
+        operator = input("Choose an operation from the list above: ")
+        num2 = float(input("What is the second number? "))
+        calcFunction = operations[operator]
+        answer = calcFunction(num1, num2)
 
-    print(f"{num1} {operator} {num2} = {answer}")
+        print(f"{num1} {operator} {num2} = {answer}")
 
-    goAgain = input("Calculate again? Type 'yes' or 'no.' ")
-    if goAgain == "yes":
-        print("Loading...")
-    elif goAgain == "no":
-        print("Goodbye!")
-        break
-    else:
-        print("Invalid input. Try again.")
+        if input(f"Type 'y' to continue calculating with {answer}, or 'n' to start a new calculation. ").lower() == "y":
+            num1 = answer
+        else:
+            continueCalc = False
+            calculator()
+
+calculator()
