@@ -74,31 +74,31 @@ gameSet = False
 playerHand = {}
 dealerHand = {}
 
-def drawCard():
+def dealCard():
     suit = random.choice(deck)
     cardList = list(suit.items())
     card = random.choice(cardList)
     return(card)
 
-playerCard = drawCard()
-dealerCard = drawCard()
+playerCard = dealCard()
+dealerCard = dealCard()
 
-print(f"You drew: {playerCard")
-print(f"Dealer drew: {dealerCard}")
+print(f"You got: {playerCard}")
+print(f"Dealer got: {dealerCard}")
 
 while gameSet == False:
-    drawNew = input("Hit? Y/N: ").lower()
+    dealNew = input("Hit? Y/N: ").lower()
 
-    if drawNew == "y":
-        playerCardTwo = drawCard()
-        dealerCardTwo = drawCard()
+    if dealNew == "y":
+        playerCardTwo = dealCard()
+        dealerCardTwo = dealCard()
         # playerCards = playerCardOne + playerCardTwo
 
-        print(f"You drew: {playerCardTwo}")
-        print(f"Dealer drew: {dealerCardTwo}")
+        print(f"You got: {playerCardTwo}")
+        print(f"Dealer got: {dealerCardTwo}")
 
-    elif drawNew == "n":
-        dealerCardTwo = drawCard()
-        print(f"Computer drew: {dealerCardTwo}")
+    elif dealNew == "n":
+        dealerCardTwo = dealCard()
+        print(f"Dealer got: {dealerCardTwo}")
     else:
         print("Invalid input. Try again.")
