@@ -6,7 +6,7 @@
 
 deck = [
     {
-        "Ace of Hearts": 1,
+        "Ace of Hearts": 11,
         "Two of Hearts": 2,
         "Three of Hearts": 3,
         "Four of Hearts": 4,
@@ -21,7 +21,7 @@ deck = [
         "King of Hearts": 10
     },
     {
-        "Ace of Diamonds": 1,
+        "Ace of Diamonds": 11,
         "Two of Diamonds": 2,
         "Three of Diamonds": 3,
         "Four of Diamonds": 4,
@@ -36,7 +36,7 @@ deck = [
         "King of Diamonds": 10
     },
     {
-        "Ace of Spades": 1,
+        "Ace of Spades": 11,
         "Two of Spades": 2,
         "Three of Spades": 3,
         "Four of Spades": 4,
@@ -51,7 +51,7 @@ deck = [
         "King of Spades": 10
     },
     {
-        "Ace of Clubs": 1,
+        "Ace of Clubs": 11,
         "Two of Clubs": 2,
         "Three of Clubs": 3,
         "Four of Clubs": 4,
@@ -69,10 +69,36 @@ deck = [
 
 import random
 
+gameSet = False
+
+playerHand = {}
+dealerHand = {}
+
 def drawCard():
     suit = random.choice(deck)
     cardList = list(suit.items())
     card = random.choice(cardList)
-    print(card)
-    
-drawCard()
+    return(card)
+
+playerCard = drawCard()
+dealerCard = drawCard()
+
+print(f"You drew: {playerCard")
+print(f"Dealer drew: {dealerCard}")
+
+while gameSet == False:
+    drawNew = input("Hit? Y/N: ").lower()
+
+    if drawNew == "y":
+        playerCardTwo = drawCard()
+        dealerCardTwo = drawCard()
+        # playerCards = playerCardOne + playerCardTwo
+
+        print(f"You drew: {playerCardTwo}")
+        print(f"Dealer drew: {dealerCardTwo}")
+
+    elif drawNew == "n":
+        dealerCardTwo = drawCard()
+        print(f"Computer drew: {dealerCardTwo}")
+    else:
+        print("Invalid input. Try again.")
